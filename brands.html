@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>ElectroMart — Brands</title>
+
+  <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/3081/3081559.png">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    body { background: #f4fbff; }
+    .brand-card img { height: 120px; object-fit: contain; border-radius: 8px; }
+    .rating { color: #ffb703; font-weight: 600; }
+    .segment-badge { font-size: 0.85rem; }
+  </style>
+</head>
+
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="index.html">
+        <img src="https://cdn-icons-png.flaticon.com/512/3081/3081559.png" width="28" height="28" alt="logo"> ElectroMart
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navRest">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navRest">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="geniusbar.html">Products</a></li>
+          <li class="nav-item"><a class="nav-link active" href="brands.html">Brands</a></li>
+          <li class="nav-item"><a class="nav-link" href="deal.html">Deals</a></li>
+          <li class="nav-item"><a class="nav-link" href="help.html">Contact</a></li>
+          <li class="nav-item">
+            <button class="btn btn-warning" type="button" data-bs-toggle="modal" data-bs-target="#cartModal">
+              🛒 Cart (<span id="cart-count">0</span>)
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Filter Row -->
+  <main class="container py-4">
+    <div class="row g-3 mb-3 align-items-center">
+      <div class="col-12 col-md-3">
+        <select class="form-select" id="segmentFilter">
+          <option>Segment: All</option>
+          <option>Premium</option>
+          <option>Mid-Range</option>
+          <option>Budget</option>
+        </select>
+      </div>
+
+      <div class="col-12 col-md-3">
+        <select class="form-select" id="sortFilter">
+          <option>Sort By</option>
+          <option>Brand: A–Z</option>
+          <option>Brand: Z–A</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Brand Cards (Store Layout Style) -->
+    <div class="row g-3" id="brandsGrid">
+
+      <!-- Apple -->
+      <div class="col-md-6" data-segment="Premium">
+        <div class="d-flex gap-3 p-3 bg-white shadow-sm align-items-center">
+          <img src="C:\WT\self learning\piyush\images\brand1.jpeg" alt="Apple" width="200" class="rounded">
+          <div>
+            <h5 class="mb-1">Apple <span class="badge bg-warning text-dark ms-2">Premium</span></h5>
+            <p class="mb-1 text-muted">Trending: iPhone 15 Pro, MacBook Air M3</p>
+            <p class="fw-bold mb-1">₹1,29,000 – ₹1,50,000</p>
+            <p class="mb-1">Rating: <span class="rating">4.8 ★</span></p>
+            <div class="d-flex gap-2">
+               <button class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#brandModal" data-name="Apple">View Products</button>
+
+              <a class="btn btn-danger btn-sm" href="#">Buy</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Samsung -->
+      <div class="col-md-6" data-segment="Premium / Mid-Range">
+        <div class="d-flex gap-3 p-3 bg-white shadow-sm align-items-center">
+          <img src="C:\WT\self learning\piyush\images\brand2.jpeg"  alt="Samsung" width="200" class="rounded">
+          <div>
+            <h5 class="mb-1">Samsung <span class="badge bg-info text-dark ms-2">Premium / Mid-Range</span></h5>
+            <p class="mb-1 text-muted">Trending: Galaxy S24, Smart LED TV</p>
+            <p class="fw-bold mb-1">₹60,000 – ₹1,05,000</p>
+            <p class="mb-1">Rating: <span class="rating">4.6 ★</span></p>
+            <div class="d-flex gap-2">
+               <button class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#brandModal" data-name="Apple">View Products</button>
+
+              <a class="btn btn-danger btn-sm" href="#">Buy</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dell -->
+      <div class="col-md-6" data-segment="Mid-Range">
+        <div class="d-flex gap-3 p-3 bg-white shadow-sm align-items-center">
+          <img src="C:\WT\self learning\piyush\images\brand3.jpeg" alt="Dell" width="200" class="rounded">
+          <div>
+            <h5 class="mb-1">Dell <span class="badge bg-secondary ms-2">Mid-Range</span></h5>
+            <p class="mb-1 text-muted">Trending: Inspiron 15 (i5 13th Gen)</p>
+            <p class="fw-bold mb-1">₹58,000</p>
+            <p class="mb-1">Rating: <span class="rating">4.5 ★</span></p>
+            <div class="d-flex gap-2">
+               <button class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#brandModal" data-name="Apple">View Products</button>
+
+              <a class="btn btn-danger btn-sm" href="#">Buy</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- HP -->
+      <div class="col-md-6" data-segment="Mid-Range">
+        <div class="d-flex gap-3 p-3 bg-white shadow-sm align-items-center">
+          <img src="C:\WT\self learning\piyush\images\brand4.jpeg" alt="HP" width="200" class="rounded">
+          <div>
+            <h5 class="mb-1">HP <span class="badge bg-secondary ms-2">Mid-Range</span></h5>
+            <p class="mb-1 text-muted">Trending: Omen Gaming Laptop</p>
+            <p class="fw-bold mb-1">₹1,25,000</p>
+            <p class="mb-1">Rating: <span class="rating">4.7 ★</span></p>
+            <div class="d-flex gap-2">
+               <button class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#brandModal" data-name="Apple">View Products</button>
+
+              <a class="btn btn-danger btn-sm" href="#">Buy</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sony -->
+      <div class="col-md-6" data-segment="Premium">
+        <div class="d-flex gap-3 p-3 bg-white shadow-sm align-items-center">
+          <img src="C:\WT\self learning\piyush\images\brand5.jpeg" alt="Sony" width="200" class="rounded">
+          <div>
+            <h5 class="mb-1">Sony <span class="badge bg-warning text-dark ms-2">Premium</span></h5>
+            <p class="mb-1 text-muted">Trending: WH-1000XM5 Headphones</p>
+            <p class="fw-bold mb-1">₹29,990</p>
+            <p class="mb-1">Rating: <span class="rating">4.5 ★</span></p>
+            <div class="d-flex gap-2">
+               <button class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#brandModal" data-name="Apple">View Products</button>
+
+              <a class="btn btn-danger btn-sm" href="#">Buy</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- OnePlus -->
+      <div class="col-md-6" data-segment="Mid-Range">
+        <div class="d-flex gap-3 p-3 bg-white shadow-sm align-items-center">
+          <img src="C:\WT\self learning\piyush\images\brand6.jpeg" alt="OnePlus" width="200" class="rounded">
+          <div>
+            <h5 class="mb-1">OnePlus <span class="badge bg-secondary ms-2">Mid-Range</span></h5>
+            <p class="mb-1 text-muted">Trending: OnePlus 12R 5G</p>
+            <p class="fw-bold mb-1">₹39,999</p>
+            <p class="mb-1">Rating: <span class="rating">4.4 ★</span></p>
+            <div class="d-flex gap-2">
+              <button class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#brandModal" data-name="Apple">View Products</button>
+
+              <a class="btn btn-danger btn-sm" href="#">Buy</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Lenovo -->
+      <div class="col-md-6" data-segment="Budget / Mid-Range">
+        <div class="d-flex gap-3 p-3 bg-white shadow-sm align-items-center">
+          <img src="C:\WT\self learning\piyush\images\brand7.jpeg" alt="Lenovo" width="200" class="rounded">
+          <div>
+            <h5 class="mb-1">Lenovo <span class="badge bg-info text-dark ms-2">Budget / Mid-Range</span></h5>
+            <p class="mb-1 text-muted">Trending: Lenovo Tablet M11</p>
+            <p class="fw-bold mb-1">₹18,999</p>
+            <p class="mb-1">Rating: <span class="rating">4.3 ★</span></p>
+            <div class="d-flex gap-2">
+              <button class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#brandModal" data-name="Apple">View Products</button>
+
+              <a class="btn btn-danger btn-sm" href="#">Buy</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Realme -->
+      <div class="col-md-6" data-segment="Budget">
+        <div class="d-flex gap-3 p-3 bg-white shadow-sm align-items-center">
+          <img src="C:\WT\self learning\piyush\images\brand8.jpeg" alt="Realme" width="200" class="rounded">
+          <div>
+            <h5 class="mb-1">Realme <span class="badge bg-success ms-2">Budget</span></h5>
+            <p class="mb-1 text-muted">Trending: Realme Buds Air 5 Pro</p>
+            <p class="fw-bold mb-1">₹4,999</p>
+            <p class="mb-1">Rating: <span class="rating">4.2 ★</span></p>
+            <div class="d-flex gap-2">
+               <button class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#brandModal" data-name="Apple">View Products</button>
+
+              <a class="btn btn-danger btn-sm" href="#">Buy</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+<!-- Restaurant details modal -->
+  <div class="modal fade" id="brandModal" tabindex="-1">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="brandModalLabel">Store</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <div id="restInfo" class="mb-3">
+            <img id="restImg" src="https://source.unsplash.com/900x300/?food,restaurant" class="img-fluid rounded mb-3" alt="">
+            <p id="restDesc">Stores details and trendy products will appear here.</p>
+          </div>
+          <div class="list-group">
+            <a href="#" class="list-group-item list-group-item-action">Mobiles-(₹39,999-₹1,49,999) </a>
+            <a href="#" class="list-group-item list-group-item-action">Laptops-(₹79,999-₹1,89,999) </a>
+            <a href="#" class="list-group-item list-group-item-action">Accessories-(₹1,999-₹19,999) </a>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button class="btn btn-danger">Order from here</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cart Modal -->
+  <div class="modal fade" id="cartModal" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header bg-primary text-white">
+          <h5 class="modal-title">Your Cart</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <table class="table table-bordered text-center">
+            <thead class="table-primary">
+              <tr>
+                <th>Item</th>
+                <th>Qty</th>
+                <th>Price</th>
+                <th>Total</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="cart-items"></tbody>
+          </table>
+          <h4>Total: ₹<span id="cart-total">0</span></h4>
+        </div>
+        <div class="modal-footer">
+          <a href="final.html" class="btn btn-success">Proceed to Checkout</a>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    // CART SYSTEM
+    let cart = [];
+
+    function addToCart(name, price) {
+      let item = cart.find(i => i.name === name);
+      if(item){
+        item.qty++;
+        item.total = item.qty * item.price;
+      } else {
+        cart.push({name: name, price: price, qty: 1, total: price});
+      }
+      updateCart();
+    }
+
+    function removeFromCart(name) {
+      cart = cart.filter(i => i.name !== name);
+      updateCart();
+    }
+
+    function updateQty(name, delta) {
+      let item = cart.find(i => i.name === name);
+      if (!item) return;
+      item.qty += delta;
+      if (item.qty < 1) item.qty = 1;
+      item.total = item.qty * item.price;
+      updateCart();
+    }
+
+    function updateCart() {
+      const tbody = document.getElementById('cart-items');
+      tbody.innerHTML = '';
+      let total = 0;
+
+      cart.forEach(item => {
+        total += item.total;
+        tbody.innerHTML += `
+          <tr>
+            <td>${item.name}</td>
+            <td>
+              <div class="d-flex justify-content-center align-items-center">
+                <button class="btn btn-sm btn-outline-secondary me-1" onclick="updateQty('${item.name}', -1)">−</button>
+                <span class="px-2">${item.qty}</span>
+                <button class="btn btn-sm btn-outline-secondary ms-1" onclick="updateQty('${item.name}', 1)">+</button>
+              </div>
+            </td>
+            <td>₹${item.price}</td>
+            <td>₹${item.total}</td>
+            <td><button class="btn btn-danger btn-sm" onclick="removeFromCart('${item.name}')">Remove</button></td>
+          </tr>`;
+      });
+
+      document.getElementById('cart-total').innerText = total;
+      const cartCount = document.getElementById('cart-count');
+      if (cartCount) cartCount.innerText = cart.length;
+    }
+
+    window.addEventListener('beforeunload', () => {
+      localStorage.setItem('cart', JSON.stringify(cart));
+    });
+
+    window.addEventListener('load', () => {
+      let savedCart = localStorage.getItem('cart');
+      if(savedCart) cart = JSON.parse(savedCart);
+      updateCart();
+    });
+
+    // FILTER & SORT
+    document.getElementById("segmentFilter").addEventListener("change", function() {
+      const selectedSegment = this.value;
+      const cards = document.querySelectorAll("#brandsGrid .col-md-6");
+      cards.forEach(card => {
+        const type = card.getAttribute("data-segment");
+        if (selectedSegment === "Segment: All" || selectedSegment === "All" || type.includes(selectedSegment))
+          card.style.display = "block";
+        else
+          card.style.display = "none";
+      });
+    });
+
+    document.getElementById("sortFilter").addEventListener("change", function() {
+      const sortBy = this.value;
+      const grid = document.getElementById("brandsGrid");
+      const items = Array.from(grid.children);
+
+      items.sort((a, b) => {
+        const nameA = a.querySelector("h5").innerText.toLowerCase();
+        const nameB = b.querySelector("h5").innerText.toLowerCase();
+        if (sortBy.includes("A–Z")) return nameA.localeCompare(nameB);
+        if (sortBy.includes("Z–A")) return nameB.localeCompare(nameA);
+        return 0;
+      });
+
+      items.forEach(item => grid.appendChild(item));
+    });
+  </script>
+</body>
+</html>
